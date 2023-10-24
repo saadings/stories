@@ -34,9 +34,13 @@ function App() {
               <ErrorContainer errorText={storiesError} />
             ) : (
               <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-                {stories?.map((story, index) => (
-                  <Card key={index} story={story} />
-                ))}
+                {stories.length > 0 ? (
+                  stories?.map((story, index) => (
+                    <Card key={index} story={story} />
+                  ))
+                ) : (
+                  <ErrorContainer errorText="No stories found" />
+                )}
               </div>
             )}
           </CardContainer>
