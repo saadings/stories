@@ -3,14 +3,14 @@ import { StoryType } from "../types/redux/storySlice";
 const Card = ({ story }: { story: StoryType }) => {
   return (
     <a href={story.url} target="_blank" rel="noopener noreferrer">
-      <div className="h-fit w-fit transition duration-[400ms] ease-in-out hover:scale-105">
+      <div className="h-fit w-fit drop-shadow-2xl transition duration-[400ms] ease-in-out hover:scale-105">
         <div className="rounded-lg bg-white p-5 shadow-xl ring-1 ring-slate-900/5 dark:bg-slate-700">
           <img
             src={story.multimedia[1].url}
             alt={story.multimedia[1].caption}
             width={story.multimedia[1].width}
             height={story.multimedia[1].height}
-            className="rounded-lg"
+            className="rounded-lg shadow-lg"
           />
           <div className="mt-2 space-y-3">
             <div className="line-clamp-1 text-xl font-bold dark:text-gray-300">
