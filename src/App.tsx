@@ -34,7 +34,7 @@ function App() {
               <ErrorContainer errorText={storiesError} />
             ) : (
               <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-                {stories.map((story, index) => (
+                {stories?.map((story, index) => (
                   <Card key={index} story={story} />
                 ))}
               </div>
