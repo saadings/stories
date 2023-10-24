@@ -4,7 +4,7 @@ const Card = ({ story }: { story: StoryType }) => {
   return (
     <a href={story.url} target="_blank" rel="noopener noreferrer">
       <div className="h-fit w-fit transition duration-[400ms] ease-in-out hover:scale-105">
-        <div className="rounded-lg bg-white p-5 shadow-xl ring-1 ring-slate-900/5 dark:bg-slate-700 sm:h-[450px] lg:h-[445px]">
+        <div className="rounded-lg bg-white p-5 shadow-xl ring-1 ring-slate-900/5 dark:bg-slate-700 sm:h-[450px] lg:h-[450px]">
           <img
             src={story.multimedia[1].url}
             alt={story.multimedia[1].caption}
