@@ -10,7 +10,7 @@
 /* Track */
 ::-webkit-scrollbar-track {
   background: rgb(30 41 59);
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 /* Handle */
