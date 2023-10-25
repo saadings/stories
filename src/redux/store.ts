@@ -5,7 +5,10 @@ import { rootReducer } from "./rootReducer";
 export const store = configureStore({
   reducer: rootReducer,
   devTools: process.env.NODE_ENV !== "production",
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) =>
+    process.env.NODE_ENV !== "production"
+      ? getDefaultMiddleware().concat(logger)
+      : getDefaultMiddleware(),
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
