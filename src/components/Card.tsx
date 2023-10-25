@@ -14,7 +14,9 @@ const Card = ({ story }: { story: StoryType }) => {
               className="rounded-lg shadow-lg"
             />
           ) : (
-            <div className="flex justify-center items-center h-[258px] dark:text-slate-300 text-xl font-bold">⚠️ No Image Found for this Story</div>
+            <div className="flex h-[258px] items-center justify-center text-xl font-bold dark:text-slate-300">
+              ⚠️ No Image Found for this Story
+            </div>
           )}
           <div className="mt-2 space-y-3">
             <div className="line-clamp-1 text-xl font-bold dark:text-gray-300">
