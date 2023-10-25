@@ -1,7 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import AppBar from "./components/AppBar";
 import CardContainer from "./components/CardContainer";
-import Card from "./components/Card";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import {
   fetchStories,
@@ -11,6 +10,7 @@ import {
 } from "./redux/stories/storiesSlice";
 import Spinner from "./components/Spinner";
 import ErrorContainer from "./components/ErrorContainer";
+const Card = lazy(() => import("./components/Card"));
 
 function App() {
   const dispatch = useAppDispatch();
@@ -33,15 +33,17 @@ function App() {
             ) : storiesError ? (
               <ErrorContainer errorText={storiesError} />
             ) : (
-              <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-                {stories.length > 0 ? (
-                  stories?.map((story, index) => (
-                    <Card key={index} story={story} />
-                  ))
-                ) : (
-                  <ErrorContainer errorText="No stories found" />
-                )}
-              </div>
+              <Suspense fallback={<Spinner />}>
+                <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+                  {stories.length > 0 ? (
+                    stories?.map((story, index) => (
+                      <Card key={index} story={story} />
+                    ))
+                  ) : (
+                    <ErrorContainer errorText="No stories found" />
+                  )}
+                </div>
+              </Suspense>
             )}
           </CardContainer>
         </div>
